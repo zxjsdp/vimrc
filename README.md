@@ -38,18 +38,58 @@ Plugins used:
 -------------
 
 - accelerated-smooth-scroll
+
+    <https://github.com/yonchu/accelerated-smooth-scroll>
+
 - ack.vim
+
+    <https://github.com/mileszs/ack.vim>
+
 - auto-pairs
+
+    <https://github.com/jiangmiao/auto-pairs>
+
 - Ctags
 - ctrlp.vim
+
+    <https://github.com/kien/ctrlp.vim>
+
 - indentLine
+
+    <https://github.com/Yggdroot/indentLine>
+
 - neocomplete.vim
+
+    <https://github.com/Shougo/neocomplete.vim>
+
 - nerdcommenter
+
+    <https://github.com/scrooloose/nerdcommenter>
+
 - nerdtree
+
+    <https://github.com/scrooloose/nerdtree>
+
 - python-syntax
+
+    <https://github.com/hdima/python-syntax>
+
 - syntastic
+
+    <https://github.com/scrooloose/syntastic>
+
 - tagbar
+
+    <https://github.com/majutsushi/tagbar>
+
 - vim-airline
+
+    <https://github.com/bling/vim-airline>
+
 - vim-surround
+
+    <https://github.com/tpope/vim-surround>
+
 - YouCompleteMe
 
+    <https://github.com/Valloric/YouCompleteMe>
