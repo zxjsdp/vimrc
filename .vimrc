@@ -29,12 +29,196 @@ set incsearch
 set ruler           "在编辑过程中，在右下角显示光标位置的状态行
 
 set completeopt=longest,menu    " 关掉智能补全时的预览窗口 
-filetype plugin indent on       "加了这句才可以用智能补全 
 set showmatch       "设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号 
 set smartindent     " 智能对齐方式 
 set shiftwidth=4    " 换行时行间交错使用4个空格 
 set autoindent      " 自动对齐 
 set ai!            " 设置自动缩进 
+
+hi comment ctermfg=blue
+
+
+
+
+
+" Vundle
+"==================================================================================
+
+set nocompatible              " be iMproved, required000
+filetype off                  " required0
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+
+let g:Powerline_symbols='fancy'
+set laststatus=2
+set t_Co=256
+let g:airline_powerline_fonts = 1
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+
+
+" -- Usage
+" -- The following are examples of different formats supported.
+" -- Keep Plugin commands between vundle#begin/end.
+
+" -- plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+
+" -- plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+
+" -- Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+
+" -- git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+
+" -- The sparkup vim script is in a subdirectory of this repo called vim.
+" -- Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" -- Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+
+Plugin 'yonchu/accelerated-smooth-scroll'
+Plugin 'mileszs/ack.vim'
+Plugin 'auto-pairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Yggdroot/indentLine'
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'python-syntax'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline'
+Plugin 'vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+
+"==================================================================================
+
+
+
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1 complete
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-n> :NERDTreeToggle<CR>
+
+
+
+
+
+" Tabbar
+nmap <F8> :TagbarToggle<CR>
+
+
+
+
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+let g:ctrlp_working_path_mode = 'ra'
+
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+
+
+
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
+
+
+
+
+
+" python-syntax
+let python_highlight_all = 1
+
+
+
+
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
+" IdentLine
+"let g:indentLine_enabled = 0
+
+" Vim
+let g:indentLine_color_term = 239
+
+"GVim
+"let g:indentLine_color_gui = '#A4E57E'
+
+" none X terminal
+"let g:indentLine_color_tty_light = 2 " (default: 4)
+"let g:indentLine_color_dark = 2 " (default: 2)"
+
+
+"==================================================================================
+
+
+
+
+
+
+
+
+
+
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+" Highlight excess line length
+augroup vimrc_autocmds
+    autocmd!
+    " highlight characters past column 180
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=red
+    autocmd FileType python match Excess /\%80v.*/
+    autocmd FileType python set nowrap
+    augroup END
 
 
 
@@ -76,179 +260,3 @@ else
     echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
 endif
 
-
-
-
-
-
-
-
-
-
-" Pathogen
-execute pathogen#infect()
-
-
-
-
-" NERDTree
-autocmd StdinReadPre * let s:std_in=1 complete
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-map <C-n> :NERDTreeToggle<CR>
-
-
-
-
-
-" Tabbar
-nmap <F8> :TagbarToggle<CR>
-
-
-
-
-
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-let g:ctrlp_working_path_mode = 'ra'
-
-let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-
-
-
-
-" vim-airline
-let g:airline#extensions#tabline#enabled = 1
-
-
-
-
-
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-
-
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-
-
-
-
-
-
-
-" python-syntax
-let python_highlight_all = 1
-
-
-
-
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-
-
-" IdentLine
-let g:indentLine_enabled = 0
-
-" Vim
-let g:indentLine_color_term = 6
-
-"GVim
-"let g:indentLine_color_gui = '#A4E57E'
-
-" none X terminal
-let g:indentLine_color_tty_light = 2 " (default: 4)
-let g:indentLine_color_dark = 2 " (default: 2)"
