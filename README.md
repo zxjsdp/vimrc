@@ -37,6 +37,10 @@ Some useful tips:
 Plugins used:
 -------------
 
+- Vundle.vim
+
+    <https://github.com/VundleVim/Vundle.vim>
+
 - accelerated-smooth-scroll
 
     <https://github.com/yonchu/accelerated-smooth-scroll>
