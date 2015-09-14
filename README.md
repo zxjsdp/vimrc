@@ -37,7 +37,7 @@ Some useful tips:
 Plugins used:
 -------------
 
-- Vundle.vim
+- Vundle.vim (Plugin manager)
 
     <https://github.com/VundleVim/Vundle.vim>
 
