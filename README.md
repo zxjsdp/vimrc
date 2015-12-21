@@ -1,41 +1,22 @@
 vimrc
 =====
+
 My .vimrc backup.
 
-Some useful tips:
------------------
+Installation
+------------
 
-- Press jk to exit from insert mode:
+Please refer to the [Quick Start](https://github.com/VundleVim/Vundle.vim#quick-start) part on [Vundle.vim GitHub page](https://github.com/VundleVim/Vundle.vim).
 
-        :imap jk <Esc>
-
-- Press <F5> to run Python script
-
-        map <F5> :w<cr>:!python %<cr>
-
-- F5编译和运行C程序，F6编译和运行C++程序
-
-        " windows下使用需要去掉./
-
-        " C的编译和运行
-        map <F5> :call CompileRunGcc()<CR>
-        func! CompileRunGcc()
-        exec "w"
-        exec "!gcc % -o %<"
-        exec "! ./%<"
-        endfunc
-
-        " C++的编译和运行
-        map <F6> :call CompileRunGpp()<CR>
-        func! CompileRunGpp()
-        exec "w"
-        exec "!g++ % -o %<"
-        exec "! ./%<"
-        endfunc
+1. Set up Vundle: `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`.
+2. Copy [.vimrc](https://github.com/zxjsdp/vimrc/blob/master/.vimrc) from this repository to home directory.
+3. Install Plugins:
+   - Launch vim and run `:PluginInstall`
+   - To install from command line: `vim +PluginInstall +qall`
 
 
-Plugins used:
--------------
+Plugins Used
+------------
 
 - Vundle.vim (Plugin manager)
 
@@ -97,3 +78,36 @@ Plugins used:
 - YouCompleteMe
 
     <https://github.com/Valloric/YouCompleteMe>
+
+
+Some Useful Tips
+----------------
+
+- Press jk to exit from insert mode:
+
+        :imap jk <Esc>
+
+- Press <F5> to run Python script
+
+        map <F5> :w<cr>:!python %<cr>
+
+- F5编译和运行C程序，F6编译和运行C++程序
+
+        " windows下使用需要去掉./
+
+        " C的编译和运行
+        map <F5> :call CompileRunGcc()<CR>
+        func! CompileRunGcc()
+        exec "w"
+        exec "!gcc % -o %<"
+        exec "! ./%<"
+        endfunc
+
+        " C++的编译和运行
+        map <F6> :call CompileRunGpp()<CR>
+        func! CompileRunGpp()
+        exec "w"
+        exec "!g++ % -o %<"
+        exec "! ./%<"
+        endfunc
+
