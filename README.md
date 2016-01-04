@@ -1,97 +1,81 @@
 vimrc
 =====
 
-My .vimrc backup.
+My `.vimrc` backup.
 
 Installation
 ------------
 
-Please refer to the [Quick Start](https://github.com/VundleVim/Vundle.vim#quick-start) part on [Vundle.vim GitHub page](https://github.com/VundleVim/Vundle.vim).
+Please refer to the [Quick Start](https://github.com/VundleVim/Vundle.vim#quick-start) part on [Vundle.vim](https://github.com/VundleVim/Vundle.vim) GitHub page.
 
 1. Set up Vundle: `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`.
-2. Copy [.vimrc](https://github.com/zxjsdp/vimrc/blob/master/.vimrc) from this repository to home directory.
-3. Install Plugins:
+2. Copy [.vimrc](https://github.com/zxjsdp/vimrc/blob/master/.vimrc) from this repository to your home directory.
+3. Install Plugins (choose one):
    - Launch vim and run `:PluginInstall`
-   - To install from command line: `vim +PluginInstall +qall`
+   - To install from command line: `$ vim +PluginInstall +qall`
 
 
 Plugins Used
 ------------
 
-- Vundle.vim (Plugin manager)
+1. Vundle.vim (Plugin manager) <https://github.com/VundleVim/Vundle.vim>
 
-    <https://github.com/VundleVim/Vundle.vim>
+2. accelerated-smooth-scroll <https://github.com/yonchu/accelerated-smooth-scroll>
 
-- accelerated-smooth-scroll
+3. ack.vim <https://github.com/mileszs/ack.vim>
 
-    <https://github.com/yonchu/accelerated-smooth-scroll>
+4. auto-pairs <https://github.com/jiangmiao/auto-pairs>
 
-- ack.vim
+5. Ctags
 
-    <https://github.com/mileszs/ack.vim>
+6. ctrlp.vim <https://github.com/kien/ctrlp.vim>
 
-- auto-pairs
+7. indentLine <https://github.com/Yggdroot/indentLine>
 
-    <https://github.com/jiangmiao/auto-pairs>
+8. neocomplete.vim <https://github.com/Shougo/neocomplete.vim>
 
-- Ctags
-- ctrlp.vim
+9. python-mode <https://github.com/klen/python-mode>
 
-    <https://github.com/kien/ctrlp.vim>
+    Python-mode is a vim plugin that helps you to create python code very quickly by utilizing libraries including pylint, rope, pydoc, pyflakes, pep8, and mccabe for features like static analysis, refactoring, folding, completion, documentation, and more. The plugin contains all you need to develop python applications in Vim. There is no need to install pylint, rope or any other Python libraries on your system.
 
-- indentLine
+10. nerdcommenter <https://github.com/scrooloose/nerdcommenter>
 
-    <https://github.com/Yggdroot/indentLine>
+11. nerdtree <https://github.com/scrooloose/nerdtree>
 
-- neocomplete.vim
+12. python-syntax <https://github.com/hdima/python-syntax>
 
-    <https://github.com/Shougo/neocomplete.vim>
+13. syntastic <https://github.com/scrooloose/syntastic>
 
-- nerdcommenter
+14. tagbar <https://github.com/majutsushi/tagbar>
 
-    <https://github.com/scrooloose/nerdcommenter>
+15. vim-airline <https://github.com/bling/vim-airline>
 
-- nerdtree
+16. vim-surround <https://github.com/tpope/vim-surround>
 
-    <https://github.com/scrooloose/nerdtree>
-
-- python-syntax
-
-    <https://github.com/hdima/python-syntax>
-
-- syntastic
-
-    <https://github.com/scrooloose/syntastic>
-
-- tagbar
-
-    <https://github.com/majutsushi/tagbar>
-
-- vim-airline
-
-    <https://github.com/bling/vim-airline>
-
-- vim-surround
-
-    <https://github.com/tpope/vim-surround>
-
-- YouCompleteMe
-
-    <https://github.com/Valloric/YouCompleteMe>
+17. YouCompleteMe <https://github.com/Valloric/YouCompleteMe>
 
 
 Some Useful Tips
 ----------------
 
-- Press jk to exit from insert mode:
+- `Shortcuts` Run current Python code (Provided by python-mode)
+
+        <leader> + r
+        \+r
+
+- `Shortcuts` Go to Definition (Provided by python-mode)
+
+        Ctrl+c+g
+
+- `Key Mapping` Press `jk` to exit from insert mode:
 
         :imap jk <Esc>
 
-- Press <F5> to run Python script
+- `Key mapping` Press `<F5>` to run Python script
 
         map <F5> :w<cr>:!python %<cr>
 
-- F5编译和运行C程序，F6编译和运行C++程序
+- `Key mapping` F5编译和运行C程序，F6编译和运行C++程序
 
         " windows下使用需要去掉./
 
