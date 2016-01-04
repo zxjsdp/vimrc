@@ -41,8 +41,8 @@ set ignorecase       "搜索忽略大小写
 " Vundle settings
 "==================================================================================
 
-set nocompatible              " be iMproved, required000
-filetype off                  " required0
+set nocompatible     " be iMproved, required000
+filetype off         " required0
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -183,6 +183,7 @@ let g:airline_powerline_fonts = 1
 "==================================================================================
 
 " Highlight excess line length
+" 高亮超出长度限制的字符
 augroup vimrc_autocmds
     autocmd!
     " highlight characters past column 180
@@ -194,11 +195,12 @@ augroup vimrc_autocmds
 
 
 " <F5> 运行python程序
+" 推荐使用 python-mode 提供的 <leader>r 方式来运行当前 Python 文件
 map <F5> :w<cr>:!python %<cr>
 
 
 
-" press jk to exit from insert mode
+" Press jk to exit from insert mode
 :imap jk <Esc>
 
 
