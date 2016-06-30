@@ -90,8 +90,8 @@ Plugin 'python-syntax'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline'
-Plugin 'vim-surround'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'vim-surround'
+"Plugin 'Valloric/YouCompleteMe'
 
 
 " All of your Plugins must be added before the following line
