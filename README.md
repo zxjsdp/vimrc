@@ -14,6 +14,7 @@ Please refer to the [Quick Start](https://github.com/VundleVim/Vundle.vim#quick-
    - Launch vim and run `:PluginInstall`
    - To install from command line: `$ vim +PluginInstall +qall`
 
+**IMPORTANT**: The `.vimrc` is hidden file. It DOSE exists after you clone the repository to local!
 
 Plugins Used
 ------------
@@ -53,6 +54,10 @@ Plugins Used
 16. vim-surround <https://github.com/tpope/vim-surround>
 
 17. YouCompleteMe <https://github.com/Valloric/YouCompleteMe>
+
+18. rust.vim <https://github.com/rust-lang/rust.vim>
+
+    Vim configuration for Rust which provides Rust file detection, syntax highlighting, formatting, Syntastic integration, and more.
 
 
 Some Useful Tips

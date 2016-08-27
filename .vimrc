@@ -92,6 +92,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline'
 Plugin 'vim-surround'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rust-lang/rust.vim'      " Rust support
 
 
 " All of your Plugins must be added before the following line
