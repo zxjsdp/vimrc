@@ -90,7 +90,7 @@ Plugin 'python-syntax'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline'
-"Plugin 'vim-surround'
+Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rust-lang/rust.vim'      " Rust support
 
